@@ -45,7 +45,6 @@ class clean(distutils.command.clean.clean):
 
         # Remove torchaudio extension
         for path in (ROOT_DIR / 'torchaudio').glob('**/*.so'):
-            print(f'removing \'{path}\'')
             path.unlink()
         # Remove build directory
         build_dirs = [
@@ -54,7 +53,6 @@ class clean(distutils.command.clean.clean):
         ]
         for path in build_dirs:
             if path.exists():
-                print(f'removing \'{path}\' (and everything under it)')
                 shutil.rmtree(str(path), ignore_errors=True)
 
 
